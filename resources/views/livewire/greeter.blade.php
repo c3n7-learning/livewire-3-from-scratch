@@ -1,9 +1,6 @@
 <div>
     <form wire:submit='changeGreeting()'>
         <div class="mt-2">
-
-        </div>
-        <div class="mt-2">
             <select class="p-4 border rounded-md bg-gray-700 text-white" wire:model.fill='greeting'>
                 @foreach ($greetings as $item)
                     <option value="{{ $item->greeting }}">
