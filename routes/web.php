@@ -1,11 +1,12 @@
 <?php
 
+use App\Livewire\ArticleIndex;
 use App\Livewire\ShowArticle;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ArticleIndex::class);
+
+Route::get('/articles/{article}', ShowArticle::class);
 
 Route::middleware([
     'auth:sanctum',
@@ -16,5 +17,3 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-
-Route::get('/articles/{article}', ShowArticle::class);
