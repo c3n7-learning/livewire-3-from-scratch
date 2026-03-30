@@ -13,8 +13,8 @@
         <tbody>
             @foreach ($articles as $article)
                 <tr wire:key='{{ $article->id }}' class="border-b bg-gray-800 border-gray-700">
-                    <td class="px-6 py-3">{{ $article->title }}</td>
-                    <td class="px-6 py-3">
+                    <td class="px-4 py-3">{{ $article->title }}</td>
+                    <td class="px-4 py-3">
                         <a class="text-gray-200 p-2" href="/dashboard/articles/{{ $article->id }}/edit" wire:navigate>
                             Edit
                         </a>
