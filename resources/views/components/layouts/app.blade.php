@@ -932,10 +932,8 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener('search:clear-results', function() {
-            console.log("Cleared results");
-        })
+    <script data-navigate-once>
+        console.log('page loaded', (new Date().toString()))
     </script>
 </body>
 
