@@ -13,6 +13,8 @@ class Search extends Component
 
     public $results = [];
 
+    public $placeholder = '';
+
     public function updatedSearchText($value)
     {
         $this->reset('results');

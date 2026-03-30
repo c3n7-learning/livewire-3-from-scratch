@@ -1,8 +1,8 @@
-<div>
+<div class="max-w-md w-full">
     <form>
-        <div class="mt-2">
+        <div class="flex gap-2">
             <input type="text" class="w-9/12 p-4 border rounded-md bg-gray-700 text-white" autocomplete="off"
-                wire:model.live.debounce='searchText' placeholder="type something to search" />
+                wire:model.live.debounce='searchText' placeholder="{{ $placeholder }}" />
 
             <button class="text-white font-medium rounded-md p-4 bg-indigo-600 disabled:bg-gray-500"
                 wire:click.prevent='clear()' {{ empty($searchText) ? 'disabled' : '' }}>
@@ -11,14 +11,5 @@
         </div>
     </form>
 
-
-    <div class="mt-4">
-        @foreach ($results as $result)
-            <div class="pt-2">
-                <a href="/articles/{{ $result->id }}">
-                    {{ $result->title }}
-                </a>
-            </div>
-        @endforeach
-    </div>
+    <livewire:search-results :results="$results" :show="!empty($searchText)" />
 </div>
