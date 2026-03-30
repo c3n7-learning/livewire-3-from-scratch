@@ -20,6 +20,8 @@ class ArticleFactory extends Factory
         return [
             'title' => fake()->realText(50),
             'content' => fake()->realText(500),
+            'published' => fake()->boolean(),
+            'notification' => fake()->randomElement(['email', 'sms', 'none']),
         ];
     }
 }

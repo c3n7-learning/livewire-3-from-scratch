@@ -12,4 +12,11 @@ class Article extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function casts()
+    {
+        return [
+            'published' => 'boolean',
+        ];
+    }
 }
