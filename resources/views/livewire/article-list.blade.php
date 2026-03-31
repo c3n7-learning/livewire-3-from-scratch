@@ -1,9 +1,10 @@
 <div class="m-auto w-1/2 mb-4">
-    <div class="mb-3">
+    <div class="mb-3 flex justify-between items-center">
         <a href="/dashboard/articles/create" class="text-gray-200 p-2 bg-indigo-700 hover:bg-indigo-900 rounded-sm"
             wire:navigate>Create Article</a>
+        <livewire:published-count />
     </div>
-    <table>
+    <table class="w-full">
         <thead class="text-xs uppercase bg-gray-700 text-gray-400">
             <tr>
                 <th class="px-6 py-3">Title</th>
