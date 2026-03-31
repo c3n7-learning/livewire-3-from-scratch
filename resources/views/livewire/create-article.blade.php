@@ -11,6 +11,28 @@
             </div>
         </div>
         <div class="mb-3">
+            <label wire:target='form.photo' wire:dirty.class='text-orange-400' class="block" for="article-photo">
+                Photo Path
+            </label>
+            <div class="flex items-center gap-4">
+                <input type="file" class="p-2 w-full border rounded-md bg-gray-700 text-white"
+                    wire:model="form.photo" />
+
+
+                <div>
+                    @if ($form->photo)
+                        <img src="{{ $form->photo->temporaryUrl() }}" alt=""
+                            class="h-24 rounded-sm object-cover" />
+                    @endif
+                </div>
+            </div>
+            <div>
+                @error('photo')
+                    <span class="text-red-600">{{ $message }}</span>
+                @enderror
+            </div>
+        </div>
+        <div class="mb-3">
             <label class="block" for="article-content">Content</label>
             <textarea id="article-content"" class="p-2 w-full border rounded-md bg-gray-700 text-white" wire:model="form.content"></textarea>
             <div>

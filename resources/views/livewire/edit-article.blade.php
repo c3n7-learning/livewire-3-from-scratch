@@ -15,6 +15,31 @@
             </div>
         </div>
         <div class="mb-3">
+            <label wire:target='form.photo' wire:dirty.class='text-orange-400' class="block" for="article-photo">
+                Photo Path
+            </label>
+            <div class="flex items-center gap-4">
+                <input type="file" class="p-2 w-full border rounded-md bg-gray-700 text-white"
+                    wire:model="form.photo" />
+
+
+                <div>
+                    @if ($form->photo)
+                        <img src="{{ $form->photo->temporaryUrl() }}" alt=""
+                            class="h-24 rounded-sm object-cover" />
+                    @elseif ($form->photo_path)
+                        <img src="{{ Storage::url($form->photo_path) }}" alt=""
+                            class="h-24 rounded-sm object-cover" />
+                    @endif
+                </div>
+            </div>
+            <div>
+                @error('photo')
+                    <span class="text-red-600">{{ $message }}</span>
+                @enderror
+            </div>
+        </div>
+        <div class="mb-3">
             <label wire:target='form.content' wire:dirty.class='text-orange-400' class="block"
                 for="article-content">Content<span wire:dirty wire:target='form.content'>*</span></label>
             <textarea id="article-content"" class="p-2 w-full border rounded-md bg-gray-700 text-white" wire:model="form.content"></textarea>
@@ -64,8 +89,7 @@
             </div>
         </div>
         <div class="mb-3">
-            <button class="text-gray-200 p-2 bg-blue-700 rounded-sm disabled:opacity-75 disabled:bg-gray-400"
-                type="submit" wire:dirty.class='hover:bg-blue-900' wire:dirty.attr.remove='disabled' disabled>
+            <button class="text-gray-200 p-2 bg-blue-700 rounded-sm hover:bg-blue-900" type="submit">
                 Save
             </button>
         </div>
