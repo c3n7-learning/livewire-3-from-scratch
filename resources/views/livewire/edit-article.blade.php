@@ -1,5 +1,5 @@
 <div class="m-auto w-1/2 mb-4">
-    <h3 class="text-lg text-gray-200 mb-3">Edit Article</h3>
+    <h3 class="text-lg text-gray-200 mb-3">Edit Article: #{{ $form->id }}</h3>
     {{-- <div wire:dirty>Form data has changed</div> --}}
     {{-- <div wire:dirty.remove>Form data has not changed</div> --}}
 
