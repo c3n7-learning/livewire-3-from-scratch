@@ -1,3 +1,3 @@
-<div>
-    Published: 0
-</div>
+<span>
+    {{ $count }}
+</span>
