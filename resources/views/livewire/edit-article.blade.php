@@ -23,13 +23,17 @@
                     wire:model="form.photo" />
 
 
-                <div>
+                <div class="text-center">
                     @if ($form->photo)
                         <img src="{{ $form->photo->temporaryUrl() }}" alt=""
-                            class="h-24 rounded-sm object-cover" />
+                            class="inline h-24 rounded-sm object-cover" />
                     @elseif ($form->photo_path)
                         <img src="{{ Storage::url($form->photo_path) }}" alt=""
-                            class="h-24 rounded-sm object-cover" />
+                            class="inline h-24 rounded-sm object-cover" />
+                        <button type="button" class="mt-2 text-gray-200 p-1 bg-blue-700 rounded-sm hover:bg-blue-900"
+                            wire:click='downloadPhoto'>
+                            Download
+                        </button>
                     @endif
                 </div>
             </div>
