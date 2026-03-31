@@ -21,6 +21,12 @@
         </div>
     </div>
 
+    @if (session('status'))
+        <div class="text bg-green-700 text-gray-200 p-2 rounded-sm">
+            {{ session('status') }}
+        </div>
+    @endif
+
     <div class='my-3'>{{ $this->articles->links(data: ['scrollTo' => false]) }}</div>
 
     <table class="w-full">

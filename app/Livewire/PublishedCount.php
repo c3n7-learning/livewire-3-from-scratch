@@ -15,7 +15,7 @@ class PublishedCount extends Component
     #[Computed(cache: true, key: 'published-count')]
     public function count()
     {
-        sleep(1);
+        sleep(3);
 
         return Article::where('published', 1)->count();
     }
