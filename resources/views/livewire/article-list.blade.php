@@ -3,12 +3,19 @@
         <a href="/dashboard/articles/create" class="text-blue-500 p-2 hover:text-blue-700 rounded-sm" wire:navigate>Create
             Article</a>
 
-        <div>
-            <button class="text-gray-200 p-2 bg-blue-700 hover:bg-blue-900 rounded-sm" wire:click='showAll()'>
+        <div class="bg-gray-700 p-1 rounded-sm">
+            <button @class([
+                'text-gray-200 p-2 bg-blue-700 hover:bg-blue-900 rounded-sm',
+                'bg-gray-700' => $showOnlyPublished,
+                'bg-blue-700' => !$showOnlyPublished,
+            ]) wire:click='togglePublished(false)'>
                 Show All
             </button>
-            <button class="text-gray-200 p-2 bg-blue-700 hover:bg-blue-900 rounded-sm whitespace-nowrap"
-                wire:click='showPublished()'>
+            <button @class([
+                'text-gray-200 p-2 bg-blue-700 hover:bg-blue-900 rounded-sm',
+                'bg-gray-700' => !$showOnlyPublished,
+                'bg-blue-700' => $showOnlyPublished,
+            ]) wire:click='togglePublished(true)'>
                 Show Published (<livewire:published-count placeholder-text="..." />)
             </button>
         </div>
